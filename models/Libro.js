@@ -1,4 +1,36 @@
-// models/Libro.js
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Libro:
+ *       type: object
+ *       required:
+ *         - titulo
+ *         - autor
+ *         - categoria
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID autogenerado del libro
+ *         titulo:
+ *           type: string
+ *           description: Título del libro
+ *         autor:
+ *           type: string
+ *           description: Autor del libro
+ *         categoria:
+ *           type: string
+ *           description: Categoría del libro
+ *         cantidad:
+ *           type: integer
+ *           description: Cantidad de ejemplares disponibles
+ *       example:
+ *         id: 1
+ *         titulo: "Clean Code"
+ *         autor: "Robert C. Martin"
+ *         categoria: "Tecnología"
+ *         cantidad: 2
+ */
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 

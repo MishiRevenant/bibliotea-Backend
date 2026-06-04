@@ -1,4 +1,30 @@
-// models/Usuario.js
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Usuario:
+ *       type: object
+ *       required:
+ *         - nombre
+ *         - email
+ *         - password
+ *       properties:
+ *         id:
+ *           type: integer
+ *         nombre:
+ *           type: string
+ *         email:
+ *           type: string
+ *           format: email
+ *         rol:
+ *           type: string
+ *           enum: [admin, usuario]
+ *       example:
+ *         id: 1
+ *         nombre: "Juan Perez"
+ *         email: "juan@example.com"
+ *         rol: "usuario"
+ */
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
