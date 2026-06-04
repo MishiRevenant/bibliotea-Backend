@@ -32,11 +32,11 @@ const getById = async (req, res) => {
 // POST /libros  (admin)
 const create = async (req, res) => {
   try {
-    const { titulo, autor, categoria, cantidad } = req.body;
+    const { titulo, autor, categoria, cantidad, imagen } = req.body;
     if (!titulo || !autor || !categoria) {
       return res.status(400).json({ message: 'Título, autor y categoría son obligatorios.' });
     }
-    const libro = await Libro.create({ titulo, autor, categoria, cantidad: cantidad ?? 1 });
+    const libro = await Libro.create({ titulo, autor, categoria, cantidad: cantidad ?? 1, imagen });
     return res.status(201).json({ message: 'Libro creado exitosamente.', libro });
   } catch (error) {
     return res.status(500).json({ message: 'Error al crear libro.' });

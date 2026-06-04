@@ -31,11 +31,11 @@ async function seed() {
     const totalLibros = await Libro.count();
     if (totalLibros === 0) {
       await Libro.bulkCreate([
-        { titulo: 'Cien Años de Soledad',   autor: 'Gabriel García Márquez', categoria: 'Literatura',   cantidad: 3 },
-        { titulo: 'El Principito',          autor: 'Antoine de Saint-Exupéry', categoria: 'Clásicos', cantidad: 5 },
-        { titulo: 'Clean Code',             autor: 'Robert C. Martin',        categoria: 'Tecnología',  cantidad: 2 },
-        { titulo: 'El Señor de los Anillos', autor: 'J.R.R. Tolkien',          categoria: 'Fantasía',    cantidad: 4 },
-        { titulo: 'Sapiens',                autor: 'Yuval Noah Harari',       categoria: 'Historia',    cantidad: 3 }
+        { titulo: 'Cien Años de Soledad',   autor: 'Gabriel García Márquez', categoria: 'Literatura',   cantidad: 3, imagen: 'https://images.penguinrandomhouse.com/cover/9780307474728' },
+        { titulo: 'El Principito',          autor: 'Antoine de Saint-Exupéry', categoria: 'Clásicos', cantidad: 5, imagen: 'https://images-na.ssl-images-amazon.com/images/I/71OZY035QkL.jpg' },
+        { titulo: 'Clean Code',             autor: 'Robert C. Martin',        categoria: 'Tecnología',  cantidad: 2, imagen: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg' },
+        { titulo: 'El Señor de los Anillos', autor: 'J.R.R. Tolkien',          categoria: 'Fantasía',    cantidad: 4, imagen: 'https://m.media-amazon.com/images/I/51EstVXM1UL._SX331_BO1,204,203,200_.jpg' },
+        { titulo: 'Sapiens',                autor: 'Yuval Noah Harari',       categoria: 'Historia',    cantidad: 3, imagen: 'https://m.media-amazon.com/images/I/41yu2qXhXXL._SX324_BO1,204,203,200_.jpg' }
       ]);
       console.log('📚 Libros de ejemplo creados exitosamente.');
     } else {

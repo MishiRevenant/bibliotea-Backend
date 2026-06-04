@@ -21,6 +21,9 @@
  *         categoria:
  *           type: string
  *           description: Categoría del libro
+ *         imagen:
+ *           type: string
+ *           description: URL de la imagen de portada
  *         cantidad:
  *           type: integer
  *           description: Cantidad de ejemplares disponibles
@@ -29,6 +32,7 @@
  *         titulo: "Clean Code"
  *         autor: "Robert C. Martin"
  *         categoria: "Tecnología"
+ *         imagen: "https://ejemplo.com/libro.jpg"
  *         cantidad: 2
  */
 const { DataTypes } = require('sequelize');
@@ -52,6 +56,11 @@ const Libro = sequelize.define('Libro', {
   categoria: {
     type: DataTypes.STRING(100),
     allowNull: false,
+  },
+  imagen: {
+    type: DataTypes.STRING(500),
+    allowNull: true,
+    defaultValue: 'https://via.placeholder.com/150x220?text=Sin+Portada',
   },
   cantidad: {
     type: DataTypes.INTEGER,

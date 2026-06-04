@@ -161,6 +161,9 @@ function renderBooks(lista) {
   }
   $('booksGrid').innerHTML = lista.map(l => `
     <div class="book-card">
+      <div class="book-cover" style="margin-bottom: 15px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <img src="${l.imagen || 'https://via.placeholder.com/150x220?text=Sin+Portada'}" alt="${l.titulo}" style="width: 100%; height: 250px; object-fit: cover; display: block;" />
+      </div>
       <div class="book-cat">${l.categoria}</div>
       <div class="book-title">${l.titulo}</div>
       <div class="book-author">${l.autor}</div>
@@ -256,6 +259,7 @@ function openNuevoLibro() {
   $('libroTitulo').value = '';
   $('libroAutor').value  = '';
   $('libroCategoria').value = '';
+  $('libroImagen').value = '';
   $('libroCantidad').value  = 1;
   openModal('modalLibro');
 }
@@ -268,6 +272,7 @@ async function editarLibro(id) {
     $('libroTitulo').value   = l.titulo;
     $('libroAutor').value    = l.autor;
     $('libroCategoria').value= l.categoria;
+    $('libroImagen').value   = l.imagen || '';
     $('libroCantidad').value = l.cantidad;
     openModal('modalLibro');
   } catch (err) { showToast(err.message, 'error'); }
@@ -278,16 +283,17 @@ async function guardarLibro() {
   const titulo   = $('libroTitulo').value.trim();
   const autor    = $('libroAutor').value.trim();
   const categoria= $('libroCategoria').value.trim();
+  const imagen   = $('libroImagen').value.trim();
   const cantidad = parseInt($('libroCantidad').value) || 1;
   const errEl    = $('libroError');
   errEl.style.display = 'none';
 
   try {
     if (id) {
-      await apiFetch(`/libros/${id}`, { method: 'PUT', body: JSON.stringify({ titulo, autor, categoria, cantidad }) });
+      await apiFetch(`/libros/${id}`, { method: 'PUT', body: JSON.stringify({ titulo, autor, categoria, cantidad, imagen }) });
       showToast('Libro actualizado correctamente.');
     } else {
-      await apiFetch('/libros', { method: 'POST', body: JSON.stringify({ titulo, autor, categoria, cantidad }) });
+      await apiFetch('/libros', { method: 'POST', body: JSON.stringify({ titulo, autor, categoria, cantidad, imagen }) });
       showToast('Libro creado correctamente.');
     }
     closeModal('modalLibro');
