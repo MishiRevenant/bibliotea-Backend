@@ -12,23 +12,7 @@
   ],
   "routes": [
     {
-      "src": "/api-docs/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/auth/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/libros/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/prestamos/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/usuarios/(.*)",
+      "src": "/(api-docs|auth|libros|prestamos|usuarios)(/.*)?",
       "dest": "server.js"
     },
     {

@@ -34,7 +34,7 @@ const { register, login } = require('../controllers/authController');
  *                 type: string
  *               rol:
  *                 type: string
- *                 description: 'admin' o 'usuario' (por defecto)
+ *                 description: "admin o usuario (por defecto)"
  *     responses:
  *       201:
  *         description: Usuario registrado exitosamente
