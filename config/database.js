@@ -2,6 +2,10 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
+// HACK PARA VERCEL: Requerir pg explícitamente para que el bundler de Vercel lo incluya en la función Serverless
+require('pg');
+require('pg-hstore');
+
 let sequelize;
 
 if (process.env.DATABASE_URL) {
