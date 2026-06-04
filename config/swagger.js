@@ -38,8 +38,13 @@ const swaggerSpec = swaggerJSDoc(options);
 const swaggerDocs = (app) => {
   // Opciones para que funcione en Vercel (usa CDN en lugar de archivos locales del node_modules)
   const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui.min.css";
+  
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
     customCssUrl: CSS_URL,
+    customJs: [
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.js"
+    ],
     customSiteTitle: "API Biblioteca Docs"
   }));
   console.log('📄 Swagger docs disponibles en /api-docs');
