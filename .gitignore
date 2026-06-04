@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables (critical to avoid uploading credentials to GitHub!)
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build/Dist output (if any)
+dist/
+build/
+out/
