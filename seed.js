@@ -32,10 +32,10 @@ async function seed() {
     if (totalLibros === 0) {
       await Libro.bulkCreate([
         { titulo: 'Cien Años de Soledad',   autor: 'Gabriel García Márquez', categoria: 'Literatura',   cantidad: 3 },
-        { titulo: 'El Principito',          autor: 'Antoine de Saint-Exupéry', categoria: 'Clásicos',    5 },
-        { titulo: 'Clean Code',             autor: 'Robert C. Martin',        categoria: 'Tecnología',  2 },
-        { titulo: 'El Señor de los Anillos', autor: 'J.R.R. Tolkien',          categoria: 'Fantasía',    4 },
-        { titulo: 'Sapiens',                autor: 'Yuval Noah Harari',       categoria: 'Historia',    3 }
+        { titulo: 'El Principito',          autor: 'Antoine de Saint-Exupéry', categoria: 'Clásicos', cantidad: 5 },
+        { titulo: 'Clean Code',             autor: 'Robert C. Martin',        categoria: 'Tecnología',  cantidad: 2 },
+        { titulo: 'El Señor de los Anillos', autor: 'J.R.R. Tolkien',          categoria: 'Fantasía',    cantidad: 4 },
+        { titulo: 'Sapiens',                autor: 'Yuval Noah Harari',       categoria: 'Historia',    cantidad: 3 }
       ]);
       console.log('📚 Libros de ejemplo creados exitosamente.');
     } else {

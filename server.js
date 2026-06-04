@@ -4,6 +4,7 @@ const express = require('express');
 const cors    = require('cors');
 const path    = require('path');
 const { sequelize } = require('./models');
+const swaggerDocs = require('./config/swagger');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Servir archivos estáticos del frontend
 app.use(express.static(path.join(__dirname, 'public')));
+
+// ── Documentación Swagger ─────────────────────────────────
+swaggerDocs(app);
 
 // ── Rutas API ─────────────────────────────────────────────
 app.use('/auth',      require('./routes/auth'));
@@ -50,3 +54,6 @@ sequelize
     console.error('❌  No se pudo conectar a la base de datos:', err.message);
     process.exit(1);
   });
+
+// Exportar la aplicación para entornos Serverless (ej. Vercel)
+module.exports = app;
